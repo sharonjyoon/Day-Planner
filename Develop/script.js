@@ -4,27 +4,71 @@ $(document).ready(function () {
   $(`#currentDay`).append(today);
 })
 
-var $textarea9 = $("#textarea9");
-var $textarea10 = $("#textarea10");
-var $textarea11 = $("#textarea11");
-var $textarea12 = $("#textarea12");
-var $textarea13 = $("#textarea13");
-var $textarea14 = $("#textarea14");
-var $textarea15 = $("#textarea15");
-var $textarea16 = $("#textarea16");
-var $textarea17 = $("#textarea17");
+let currentTime = parseInt(moment().format(`HH`));
 
-$(`button`).on(`click`, function () {
-  localStorage.setItem(`9A.M.`, $textarea9.val())
-  localStorage.setItem(`10A.M.`, $textarea10.val())
-  localStorage.setItem(`11A.M.`, $textarea11.val())
-  localStorage.setItem(`12P.M.`, $textarea12.val())
-  localStorage.setItem(`1P.M.`, $textarea13.val())
-  localStorage.setItem(`2P.M.`, $textarea14.val())
-  localStorage.setItem(`3P.M.`, $textarea15.val())
-  localStorage.setItem(`4P.M.`, $textarea16.val())
-  localStorage.setItem(`5P.M.`, $textarea17.val())
+$(`textarea`).each(function () {
+  let name = parseInt($(this).attr(`name`));
+
+if(name > currentTime){
+  $(this).addClass(`future`)
+};
+if(name < currentTime){
+  $(this).addClass(`past`)
+};
+if(name === currentTime) {
+  $(this).addClass(`present`)
+};
 })
+
+
+
+let $textarea9 = $("#textarea9");
+let $textarea10 = $("#textarea10");
+let $textarea11 = $("#textarea11");
+let $textarea12 = $("#textarea12");
+let $textarea13 = $("#textarea13");
+let $textarea14 = $("#textarea14");
+let $textarea15 = $("#textarea15");
+let $textarea16 = $("#textarea16");
+let $textarea17 = $("#textarea17");
+
+
+
+$(`#btn9`).on(`click`, function () {
+  localStorage.setItem(`9A.M.`, $textarea9.val())
+});
+
+$(`#btn10`).on(`click`, function () {
+  localStorage.setItem(`10A.M.`, $textarea10.val())
+});
+
+$(`#btn11`).on(`click`, function () {
+  localStorage.setItem(`11A.M.`, $textarea11.val())
+});
+
+$(`#btn12`).on(`click`, function () {
+  localStorage.setItem(`12P.M.`, $textarea12.val())
+});
+
+$(`#btn1`).on(`click`, function () {
+  localStorage.setItem(`1P.M.`, $textarea13.val())
+});
+
+$(`#btn2`).on(`click`, function () {
+  localStorage.setItem(`2P.M.`, $textarea14.val())
+});
+
+$(`#btn3`).on(`click`, function () {
+  localStorage.setItem(`3P.M.`, $textarea15.val())
+});
+
+$(`#btn4`).on(`click`, function () {
+  localStorage.setItem(`4P.M.`, $textarea16.val())
+});
+
+$(`#btn5`).on(`click`, function () {
+  localStorage.setItem(`5P.M.`, $textarea17.val())
+});
 
 $(`#textarea9`).append(localStorage.getItem(`9A.M.`));
 $(`#textarea10`).append(localStorage.getItem(`10A.M.`));
